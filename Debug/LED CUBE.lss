@@ -1,0 +1,1074 @@
+
+LED CUBE.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000005b2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  00800060  000005b2  00000646  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000001a  00800064  00800064  0000064a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000064a  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000067c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000088  00000000  00000000  000006b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000005ea  00000000  00000000  00000740  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000016b  00000000  00000000  00000d2a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000032d  00000000  00000000  00000e95  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000001a8  00000000  00000000  000011c4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000001f3  00000000  00000000  0000136c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000044a  00000000  00000000  0000155f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000078  00000000  00000000  000019a9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e2 eb       	ldi	r30, 0xB2	; 178
+  68:	f5 e0       	ldi	r31, 0x05	; 5
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a4 36       	cpi	r26, 0x64	; 100
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a4 e6       	ldi	r26, 0x64	; 100
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	ae 37       	cpi	r26, 0x7E	; 126
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 c9 02 	call	0x592	; 0x592 <main>
+  8a:	0c 94 d7 02 	jmp	0x5ae	; 0x5ae <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <Ebeneinit>:
+				countR++;
+			}
+		}
+		else                        //Schaltet die Ebenen durch, da
+		{
+			while(countR<tr)
+  92:	dc 9a       	sbi	0x1b, 4	; 27
+  94:	dd 9a       	sbi	0x1b, 5	; 27
+  96:	dd 98       	cbi	0x1b, 5	; 27
+				ReiheNext();
+				countR++;
+			}
+		}
+	}
+	PORTC=LED;
+  98:	dc 98       	cbi	0x1b, 4	; 27
+  9a:	08 95       	ret
+
+0000009c <EbeneNext>:
+  9c:	dd 9a       	sbi	0x1b, 5	; 27
+  9e:	dd 98       	cbi	0x1b, 5	; 27
+// Funktioniert so noch nicht?!
+void Reihe(int tr) //schaltet bis zu der gewünschten Reihe
+{
+	if((tr!=countR)||(countR==0))
+	{
+		if(countR>tr)
+  a0:	08 95       	ret
+
+000000a2 <Ebene>:
+  a2:	cf 93       	push	r28
+  a4:	df 93       	push	r29
+  a6:	ec 01       	movw	r28, r24
+  a8:	80 91 68 00 	lds	r24, 0x0068
+				countR++;
+			}
+		}
+	}
+	PORTC=LED;
+  ac:	90 91 69 00 	lds	r25, 0x0069
+    PORTA = PORTA | 0b00100000;//Port A5 auf 1 (clock)
+    PORTA = PORTA & 0b11011111;//Port A5 auf 0
+}
+void Ebene(int te) //schaltet bis zu der gewünschten ebene
+{ //PORTC = 0;  //nur für array gedöns!
+    if((te!=countE)||(countE==0))
+  b0:	c8 17       	cp	r28, r24
+  b2:	d9 07       	cpc	r29, r25
+  b4:	21 f4       	brne	.+8      	; 0xbe <Ebene+0x1c>
+  b6:	20 97       	sbiw	r28, 0x00	; 0
+  b8:	09 f4       	brne	.+2      	; 0xbc <Ebene+0x1a>
+  ba:	42 c0       	rjmp	.+132    	; 0x140 <Ebene+0x9e>
+  bc:	46 c0       	rjmp	.+140    	; 0x14a <Ebene+0xa8>
+    {
+        if(countE>te)
+  be:	c8 17       	cp	r28, r24
+  c0:	d9 07       	cpc	r29, r25
+  c2:	2c f4       	brge	.+10     	; 0xce <Ebene+0x2c>
+        {
+            PORTA = 0b00000100;//Ebenen shift register reset
+  c4:	84 e0       	ldi	r24, 0x04	; 4
+  c6:	8b bb       	out	0x1b, r24	; 27
+            PORTA = 0b01000100;//Ebenen shift register reset ende
+  c8:	84 e4       	ldi	r24, 0x44	; 68
+  ca:	8b bb       	out	0x1b, r24	; 27
+  cc:	0a c0       	rjmp	.+20     	; 0xe2 <Ebene+0x40>
+            countE=1;
+        }
+        if((countE<=1)||(countE==8)) //Startet mit der ersten Ebene
+  ce:	82 30       	cpi	r24, 0x02	; 2
+  d0:	91 05       	cpc	r25, r1
+  d2:	3c f0       	brlt	.+14     	; 0xe2 <Ebene+0x40>
+  d4:	88 30       	cpi	r24, 0x08	; 8
+  d6:	91 05       	cpc	r25, r1
+  d8:	21 f0       	breq	.+8      	; 0xe2 <Ebene+0x40>
+                    countE++;
+                }
+        }
+        else                        //Schaltet die Ebenen durch, da
+        {
+            while(countE<te)
+  da:	8c 17       	cp	r24, r28
+  dc:	9d 07       	cpc	r25, r29
+  de:	04 f1       	brlt	.+64     	; 0x120 <Ebene+0x7e>
+  e0:	34 c0       	rjmp	.+104    	; 0x14a <Ebene+0xa8>
+            PORTA = 0b01000100;//Ebenen shift register reset ende
+            countE=1;
+        }
+        if((countE<=1)||(countE==8)) //Startet mit der ersten Ebene
+        {
+            countE=1;
+  e2:	81 e0       	ldi	r24, 0x01	; 1
+  e4:	90 e0       	ldi	r25, 0x00	; 0
+  e6:	90 93 69 00 	sts	0x0069, r25
+  ea:	80 93 68 00 	sts	0x0068, r24
+            Ebeneinit();
+  ee:	0e 94 49 00 	call	0x92	; 0x92 <Ebeneinit>
+                while(countE<te)    //Schaltet die Ebenen durch, bis Ebene te erreicht ist
+  f2:	80 91 68 00 	lds	r24, 0x0068
+  f6:	90 91 69 00 	lds	r25, 0x0069
+  fa:	8c 17       	cp	r24, r28
+  fc:	9d 07       	cpc	r25, r29
+  fe:	2c f5       	brge	.+74     	; 0x14a <Ebene+0xa8>
+                {
+                    EbeneNext();
+ 100:	0e 94 4e 00 	call	0x9c	; 0x9c <EbeneNext>
+                    countE++;
+ 104:	20 91 68 00 	lds	r18, 0x0068
+ 108:	30 91 69 00 	lds	r19, 0x0069
+ 10c:	2f 5f       	subi	r18, 0xFF	; 255
+ 10e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 110:	30 93 69 00 	sts	0x0069, r19
+ 114:	20 93 68 00 	sts	0x0068, r18
+        }
+        if((countE<=1)||(countE==8)) //Startet mit der ersten Ebene
+        {
+            countE=1;
+            Ebeneinit();
+                while(countE<te)    //Schaltet die Ebenen durch, bis Ebene te erreicht ist
+ 118:	2c 17       	cp	r18, r28
+ 11a:	3d 07       	cpc	r19, r29
+ 11c:	8c f3       	brlt	.-30     	; 0x100 <Ebene+0x5e>
+ 11e:	15 c0       	rjmp	.+42     	; 0x14a <Ebene+0xa8>
+        }
+        else                        //Schaltet die Ebenen durch, da
+        {
+            while(countE<te)
+            {
+                EbeneNext();
+ 120:	0e 94 4e 00 	call	0x9c	; 0x9c <EbeneNext>
+                countE++;
+ 124:	20 91 68 00 	lds	r18, 0x0068
+ 128:	30 91 69 00 	lds	r19, 0x0069
+ 12c:	2f 5f       	subi	r18, 0xFF	; 255
+ 12e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 130:	30 93 69 00 	sts	0x0069, r19
+ 134:	20 93 68 00 	sts	0x0068, r18
+                    countE++;
+                }
+        }
+        else                        //Schaltet die Ebenen durch, da
+        {
+            while(countE<te)
+ 138:	2c 17       	cp	r18, r28
+ 13a:	3d 07       	cpc	r19, r29
+ 13c:	8c f3       	brlt	.-30     	; 0x120 <Ebene+0x7e>
+ 13e:	05 c0       	rjmp	.+10     	; 0x14a <Ebene+0xa8>
+}
+void Ebene(int te) //schaltet bis zu der gewünschten ebene
+{ //PORTC = 0;  //nur für array gedöns!
+    if((te!=countE)||(countE==0))
+    {
+        if(countE>te)
+ 140:	1c 16       	cp	r1, r28
+ 142:	1d 06       	cpc	r1, r29
+ 144:	0c f4       	brge	.+2      	; 0x148 <Ebene+0xa6>
+ 146:	be cf       	rjmp	.-132    	; 0xc4 <Ebene+0x22>
+ 148:	cc cf       	rjmp	.-104    	; 0xe2 <Ebene+0x40>
+                EbeneNext();
+                countE++;
+            }
+        }
+    }
+}
+ 14a:	df 91       	pop	r29
+ 14c:	cf 91       	pop	r28
+ 14e:	08 95       	ret
+
+00000150 <ReiheNext>:
+void ReiheNext() //reihe weiter schalten
+{
+    PORTA = PORTA | 0b00001000;//Port A3 auf 1
+ 150:	db 9a       	sbi	0x1b, 3	; 27
+    PORTA = PORTA & 0b11110111;//Port A3 auf 0
+ 152:	db 98       	cbi	0x1b, 3	; 27
+ 154:	08 95       	ret
+
+00000156 <Reiheinit>:
+}
+void Reiheinit() //erste reihe
+{
+    PORTA = PORTA | 0b00000010;//Port A1 auf 1
+ 156:	d9 9a       	sbi	0x1b, 1	; 27
+    ReiheNext();
+ 158:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+    PORTA = PORTA & 0b11111101;//Port A1 auf 0
+ 15c:	d9 98       	cbi	0x1b, 1	; 27
+ 15e:	08 95       	ret
+
+00000160 <resetReihe>:
+}
+void resetReihe() //setzt Die flipflops zurück, es werden alle reihen durch geschaltet und nullen in die flipflops gegeben
+{
+ 160:	cf 93       	push	r28
+ 162:	df 93       	push	r29
+    //PORTA = 0b01000000;//shift register reset
+    PORTA = 0b01000100;//shift register reset
+ 164:	84 e4       	ldi	r24, 0x44	; 68
+ 166:	8b bb       	out	0x1b, r24	; 27
+    PORTC = 0b00000000;//LEDs Aus Schalten
+ 168:	15 ba       	out	0x15, r1	; 21
+    int iresetReihe=0;
+	Reiheinit();	//Testweise hinzugefügt
+ 16a:	0e 94 ab 00 	call	0x156	; 0x156 <Reiheinit>
+ 16e:	c7 e0       	ldi	r28, 0x07	; 7
+ 170:	d0 e0       	ldi	r29, 0x00	; 0
+    while(iresetReihe<7)
+    {
+        ReiheNext();
+ 172:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+ 176:	21 97       	sbiw	r28, 0x01	; 1
+    //PORTA = 0b01000000;//shift register reset
+    PORTA = 0b01000100;//shift register reset
+    PORTC = 0b00000000;//LEDs Aus Schalten
+    int iresetReihe=0;
+	Reiheinit();	//Testweise hinzugefügt
+    while(iresetReihe<7)
+ 178:	e1 f7       	brne	.-8      	; 0x172 <resetReihe+0x12>
+    {
+        ReiheNext();
+        iresetReihe++;
+    }
+}
+ 17a:	df 91       	pop	r29
+ 17c:	cf 91       	pop	r28
+ 17e:	08 95       	ret
+
+00000180 <pulse>:
+/*
+Kanten des Würfels leuchten, in der mitte fährt ein block 2x2x2 hoch und runter
+*/
+void pulse (int tpulse)
+{
+ 180:	3f 92       	push	r3
+ 182:	4f 92       	push	r4
+ 184:	5f 92       	push	r5
+ 186:	6f 92       	push	r6
+ 188:	7f 92       	push	r7
+ 18a:	8f 92       	push	r8
+ 18c:	9f 92       	push	r9
+ 18e:	af 92       	push	r10
+ 190:	bf 92       	push	r11
+ 192:	cf 92       	push	r12
+ 194:	df 92       	push	r13
+ 196:	ef 92       	push	r14
+ 198:	ff 92       	push	r15
+ 19a:	0f 93       	push	r16
+ 19c:	1f 93       	push	r17
+ 19e:	cf 93       	push	r28
+ 1a0:	df 93       	push	r29
+    int ipulse;
+    int a = 1;
+    int b = 8;
+	int ab = 1;
+    for(ipulse=0;ipulse<tpulse;ipulse++)
+ 1a2:	18 16       	cp	r1, r24
+ 1a4:	19 06       	cpc	r1, r25
+ 1a6:	0c f0       	brlt	.+2      	; 0x1aa <pulse+0x2a>
+ 1a8:	e0 c0       	rjmp	.+448    	; 0x36a <pulse+0x1ea>
+ 1aa:	5c 01       	movw	r10, r24
+ 1ac:	cc 24       	eor	r12, r12
+ 1ae:	c3 94       	inc	r12
+ 1b0:	d1 2c       	mov	r13, r1
+ 1b2:	01 e0       	ldi	r16, 0x01	; 1
+ 1b4:	10 e0       	ldi	r17, 0x00	; 0
+ 1b6:	e1 2c       	mov	r14, r1
+ 1b8:	f1 2c       	mov	r15, r1
+    {
+        f1 = 0;
+        EC = 1;
+ 1ba:	77 24       	eor	r7, r7
+ 1bc:	73 94       	inc	r7
+ 1be:	81 2c       	mov	r8, r1
+            else
+            {
+				for (i=0;i<25;i++)
+				{
+					Ebene(EC);
+					PORTC = 0b11111111;
+ 1c0:	cf ef       	ldi	r28, 0xFF	; 255
+					Reiheinit();
+					PORTC = 0b10000001;
+ 1c2:	d1 e8       	ldi	r29, 0x81	; 129
+					PORTC = 0b11111111;
+					Reiheinit();
+					PORTC = 0b10000001;
+					ReiheNext();
+					ReiheNext();
+					PORTC = 0b10011001;
+ 1c4:	0f 2e       	mov	r0, r31
+ 1c6:	f9 e9       	ldi	r31, 0x99	; 153
+ 1c8:	9f 2e       	mov	r9, r31
+ 1ca:	f0 2d       	mov	r31, r0
+ 1cc:	68 94       	set
+ 1ce:	33 24       	eor	r3, r3
+ 1d0:	31 f8       	bld	r3, 1
+ 1d2:	41 2c       	mov	r4, r1
+				ab=2;
+			}
+		}
+		if (ab==2)
+		{
+			a--;
+ 1d4:	0f 2e       	mov	r0, r31
+ 1d6:	f7 e0       	ldi	r31, 0x07	; 7
+ 1d8:	5f 2e       	mov	r5, r31
+ 1da:	f0 2d       	mov	r31, r0
+ 1dc:	61 2c       	mov	r6, r1
+    int a = 1;
+    int b = 8;
+	int ab = 1;
+    for(ipulse=0;ipulse<tpulse;ipulse++)
+    {
+        f1 = 0;
+ 1de:	10 92 79 00 	sts	0x0079, r1
+ 1e2:	10 92 78 00 	sts	0x0078, r1
+        EC = 1;
+ 1e6:	70 92 62 00 	sts	0x0062, r7
+ 1ea:	80 92 63 00 	sts	0x0063, r8
+        while(f1<96)
+ 1ee:	94 c0       	rjmp	.+296    	; 0x318 <pulse+0x198>
+        {
+            if(EC==a)
+ 1f0:	80 91 62 00 	lds	r24, 0x0062
+ 1f4:	90 91 63 00 	lds	r25, 0x0063
+ 1f8:	80 17       	cp	r24, r16
+ 1fa:	91 07       	cpc	r25, r17
+ 1fc:	09 f0       	breq	.+2      	; 0x200 <pulse+0x80>
+ 1fe:	48 c0       	rjmp	.+144    	; 0x290 <pulse+0x110>
+            {
+				for (i=0;i<25;i++)
+ 200:	10 92 67 00 	sts	0x0067, r1
+ 204:	10 92 66 00 	sts	0x0066, r1
+				{
+					Ebene(EC);
+ 208:	80 91 62 00 	lds	r24, 0x0062
+ 20c:	90 91 63 00 	lds	r25, 0x0063
+ 210:	0e 94 51 00 	call	0xa2	; 0xa2 <Ebene>
+					PORTC = 0b11111111;
+ 214:	c5 bb       	out	0x15, r28	; 21
+					Reiheinit();
+ 216:	0e 94 ab 00 	call	0x156	; 0x156 <Reiheinit>
+					PORTC = 0b10000001;
+ 21a:	d5 bb       	out	0x15, r29	; 21
+					ReiheNext();
+ 21c:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					ReiheNext();
+ 220:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					PORTC = 0b10011001;
+ 224:	95 ba       	out	0x15, r9	; 21
+					ReiheNext();
+ 226:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					PORTC = 0b10011001;
+ 22a:	95 ba       	out	0x15, r9	; 21
+					ReiheNext();
+ 22c:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					PORTC = 0b10000001;
+ 230:	d5 bb       	out	0x15, r29	; 21
+					ReiheNext();
+ 232:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					ReiheNext();
+ 236:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					PORTC = 0b11111111;
+ 23a:	c5 bb       	out	0x15, r28	; 21
+					ReiheNext();
+ 23c:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					resetReihe();			
+ 240:	0e 94 b0 00 	call	0x160	; 0x160 <resetReihe>
+        EC = 1;
+        while(f1<96)
+        {
+            if(EC==a)
+            {
+				for (i=0;i<25;i++)
+ 244:	80 91 66 00 	lds	r24, 0x0066
+ 248:	90 91 67 00 	lds	r25, 0x0067
+ 24c:	01 96       	adiw	r24, 0x01	; 1
+ 24e:	90 93 67 00 	sts	0x0067, r25
+ 252:	80 93 66 00 	sts	0x0066, r24
+ 256:	49 97       	sbiw	r24, 0x19	; 25
+ 258:	bc f2       	brlt	.-82     	; 0x208 <pulse+0x88>
+					ReiheNext();
+					PORTC = 0b11111111;
+					ReiheNext();
+					resetReihe();			
+				}
+				EC++;
+ 25a:	80 91 62 00 	lds	r24, 0x0062
+ 25e:	90 91 63 00 	lds	r25, 0x0063
+ 262:	01 96       	adiw	r24, 0x01	; 1
+				if (EC==9)
+ 264:	89 30       	cpi	r24, 0x09	; 9
+ 266:	91 05       	cpc	r25, r1
+ 268:	29 f0       	breq	.+10     	; 0x274 <pulse+0xf4>
+					ReiheNext();
+					PORTC = 0b11111111;
+					ReiheNext();
+					resetReihe();			
+				}
+				EC++;
+ 26a:	90 93 63 00 	sts	0x0063, r25
+ 26e:	80 93 62 00 	sts	0x0062, r24
+ 272:	52 c0       	rjmp	.+164    	; 0x318 <pulse+0x198>
+				if (EC==9)
+				{
+					EC=1;
+ 274:	70 92 62 00 	sts	0x0062, r7
+ 278:	80 92 63 00 	sts	0x0063, r8
+					f1++;
+ 27c:	80 91 78 00 	lds	r24, 0x0078
+ 280:	90 91 79 00 	lds	r25, 0x0079
+ 284:	01 96       	adiw	r24, 0x01	; 1
+ 286:	90 93 79 00 	sts	0x0079, r25
+ 28a:	80 93 78 00 	sts	0x0078, r24
+ 28e:	44 c0       	rjmp	.+136    	; 0x318 <pulse+0x198>
+				}
+            }
+            else
+            {
+				for (i=0;i<25;i++)
+ 290:	10 92 67 00 	sts	0x0067, r1
+ 294:	10 92 66 00 	sts	0x0066, r1
+				{
+					Ebene(EC);
+ 298:	80 91 62 00 	lds	r24, 0x0062
+ 29c:	90 91 63 00 	lds	r25, 0x0063
+ 2a0:	0e 94 51 00 	call	0xa2	; 0xa2 <Ebene>
+					PORTC = 0b11111111;
+ 2a4:	c5 bb       	out	0x15, r28	; 21
+					Reiheinit();
+ 2a6:	0e 94 ab 00 	call	0x156	; 0x156 <Reiheinit>
+					PORTC = 0b10000001;
+ 2aa:	d5 bb       	out	0x15, r29	; 21
+					ReiheNext();
+ 2ac:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					ReiheNext();
+ 2b0:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					ReiheNext();
+ 2b4:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					ReiheNext();
+ 2b8:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					ReiheNext();
+ 2bc:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					ReiheNext();
+ 2c0:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					PORTC = 0b11111111;
+ 2c4:	c5 bb       	out	0x15, r28	; 21
+					ReiheNext();
+ 2c6:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+					resetReihe();
+ 2ca:	0e 94 b0 00 	call	0x160	; 0x160 <resetReihe>
+					f1++;
+				}
+            }
+            else
+            {
+				for (i=0;i<25;i++)
+ 2ce:	80 91 66 00 	lds	r24, 0x0066
+ 2d2:	90 91 67 00 	lds	r25, 0x0067
+ 2d6:	01 96       	adiw	r24, 0x01	; 1
+ 2d8:	90 93 67 00 	sts	0x0067, r25
+ 2dc:	80 93 66 00 	sts	0x0066, r24
+ 2e0:	49 97       	sbiw	r24, 0x19	; 25
+ 2e2:	d4 f2       	brlt	.-76     	; 0x298 <pulse+0x118>
+					ReiheNext();
+					PORTC = 0b11111111;
+					ReiheNext();
+					resetReihe();
+				}
+				EC++;
+ 2e4:	80 91 62 00 	lds	r24, 0x0062
+ 2e8:	90 91 63 00 	lds	r25, 0x0063
+ 2ec:	01 96       	adiw	r24, 0x01	; 1
+				if (EC==9)
+ 2ee:	89 30       	cpi	r24, 0x09	; 9
+ 2f0:	91 05       	cpc	r25, r1
+ 2f2:	29 f0       	breq	.+10     	; 0x2fe <pulse+0x17e>
+					ReiheNext();
+					PORTC = 0b11111111;
+					ReiheNext();
+					resetReihe();
+				}
+				EC++;
+ 2f4:	90 93 63 00 	sts	0x0063, r25
+ 2f8:	80 93 62 00 	sts	0x0062, r24
+ 2fc:	0d c0       	rjmp	.+26     	; 0x318 <pulse+0x198>
+				if (EC==9)
+				{
+					EC=1;
+ 2fe:	70 92 62 00 	sts	0x0062, r7
+ 302:	80 92 63 00 	sts	0x0063, r8
+					f1++;
+ 306:	80 91 78 00 	lds	r24, 0x0078
+ 30a:	90 91 79 00 	lds	r25, 0x0079
+ 30e:	01 96       	adiw	r24, 0x01	; 1
+ 310:	90 93 79 00 	sts	0x0079, r25
+ 314:	80 93 78 00 	sts	0x0078, r24
+	int ab = 1;
+    for(ipulse=0;ipulse<tpulse;ipulse++)
+    {
+        f1 = 0;
+        EC = 1;
+        while(f1<96)
+ 318:	80 91 78 00 	lds	r24, 0x0078
+ 31c:	90 91 79 00 	lds	r25, 0x0079
+ 320:	80 36       	cpi	r24, 0x60	; 96
+ 322:	91 05       	cpc	r25, r1
+ 324:	0c f4       	brge	.+2      	; 0x328 <pulse+0x1a8>
+ 326:	64 cf       	rjmp	.-312    	; 0x1f0 <pulse+0x70>
+					EC=1;
+					f1++;
+				}
+            }
+        }
+		if (ab==1)
+ 328:	81 e0       	ldi	r24, 0x01	; 1
+ 32a:	c8 16       	cp	r12, r24
+ 32c:	d1 04       	cpc	r13, r1
+ 32e:	31 f4       	brne	.+12     	; 0x33c <pulse+0x1bc>
+		{
+			a++;
+ 330:	0f 5f       	subi	r16, 0xFF	; 255
+ 332:	1f 4f       	sbci	r17, 0xFF	; 255
+			b--;
+			if (a==8)
+ 334:	08 30       	cpi	r16, 0x08	; 8
+ 336:	11 05       	cpc	r17, r1
+ 338:	89 f4       	brne	.+34     	; 0x35c <pulse+0x1dc>
+ 33a:	0c c0       	rjmp	.+24     	; 0x354 <pulse+0x1d4>
+			{
+				ab=2;
+			}
+		}
+		if (ab==2)
+ 33c:	82 e0       	ldi	r24, 0x02	; 2
+ 33e:	c8 16       	cp	r12, r24
+ 340:	d1 04       	cpc	r13, r1
+ 342:	61 f4       	brne	.+24     	; 0x35c <pulse+0x1dc>
+		{
+			a--;
+ 344:	01 50       	subi	r16, 0x01	; 1
+ 346:	11 09       	sbc	r17, r1
+			b++;
+			if (a==1)
+ 348:	01 30       	cpi	r16, 0x01	; 1
+ 34a:	11 05       	cpc	r17, r1
+ 34c:	39 f4       	brne	.+14     	; 0x35c <pulse+0x1dc>
+			{
+				ab=1;
+ 34e:	c7 2c       	mov	r12, r7
+ 350:	d8 2c       	mov	r13, r8
+ 352:	04 c0       	rjmp	.+8      	; 0x35c <pulse+0x1dc>
+ 354:	c3 2c       	mov	r12, r3
+ 356:	d4 2c       	mov	r13, r4
+				ab=2;
+			}
+		}
+		if (ab==2)
+		{
+			a--;
+ 358:	05 2d       	mov	r16, r5
+ 35a:	16 2d       	mov	r17, r6
+{
+    int ipulse;
+    int a = 1;
+    int b = 8;
+	int ab = 1;
+    for(ipulse=0;ipulse<tpulse;ipulse++)
+ 35c:	8f ef       	ldi	r24, 0xFF	; 255
+ 35e:	e8 1a       	sub	r14, r24
+ 360:	f8 0a       	sbc	r15, r24
+ 362:	ea 14       	cp	r14, r10
+ 364:	fb 04       	cpc	r15, r11
+ 366:	09 f0       	breq	.+2      	; 0x36a <pulse+0x1ea>
+ 368:	3a cf       	rjmp	.-396    	; 0x1de <pulse+0x5e>
+			{
+				ab=1;
+			}
+		}
+    }
+}
+ 36a:	df 91       	pop	r29
+ 36c:	cf 91       	pop	r28
+ 36e:	1f 91       	pop	r17
+ 370:	0f 91       	pop	r16
+ 372:	ff 90       	pop	r15
+ 374:	ef 90       	pop	r14
+ 376:	df 90       	pop	r13
+ 378:	cf 90       	pop	r12
+ 37a:	bf 90       	pop	r11
+ 37c:	af 90       	pop	r10
+ 37e:	9f 90       	pop	r9
+ 380:	8f 90       	pop	r8
+ 382:	7f 90       	pop	r7
+ 384:	6f 90       	pop	r6
+ 386:	5f 90       	pop	r5
+ 388:	4f 90       	pop	r4
+ 38a:	3f 90       	pop	r3
+ 38c:	08 95       	ret
+
+0000038e <LEDan>:
+void LEDan()
+{
+ 38e:	ef 92       	push	r14
+ 390:	ff 92       	push	r15
+ 392:	1f 93       	push	r17
+ 394:	cf 93       	push	r28
+ 396:	df 93       	push	r29
+	int tan;
+	for(tan=0;tan<ton;tan++)
+ 398:	80 91 64 00 	lds	r24, 0x0064
+ 39c:	90 91 65 00 	lds	r25, 0x0065
+ 3a0:	18 16       	cp	r1, r24
+ 3a2:	19 06       	cpc	r1, r25
+ 3a4:	cc f5       	brge	.+114    	; 0x418 <LEDan+0x8a>
+ 3a6:	c0 e0       	ldi	r28, 0x00	; 0
+ 3a8:	d0 e0       	ldi	r29, 0x00	; 0
+	{
+		Ebene(EC);
+		PORTC = 255;
+ 3aa:	1f ef       	ldi	r17, 0xFF	; 255
+		warte(Zeit1);
+		resetReihe();
+		EC++;
+		if(EC==9)
+		{
+			EC = 1;
+ 3ac:	ee 24       	eor	r14, r14
+ 3ae:	e3 94       	inc	r14
+ 3b0:	f1 2c       	mov	r15, r1
+void LEDan()
+{
+	int tan;
+	for(tan=0;tan<ton;tan++)
+	{
+		Ebene(EC);
+ 3b2:	80 91 62 00 	lds	r24, 0x0062
+ 3b6:	90 91 63 00 	lds	r25, 0x0063
+ 3ba:	0e 94 51 00 	call	0xa2	; 0xa2 <Ebene>
+		PORTC = 255;
+ 3be:	15 bb       	out	0x15, r17	; 21
+		Reiheinit();
+ 3c0:	0e 94 ab 00 	call	0x156	; 0x156 <Reiheinit>
+		ReiheNext();
+ 3c4:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 3c8:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 3cc:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		PORTC = 0;
+ 3d0:	15 ba       	out	0x15, r1	; 21
+		ReiheNext();
+ 3d2:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 3d6:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 3da:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 3de:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		warte(Zeit1);
+		resetReihe();
+ 3e2:	0e 94 b0 00 	call	0x160	; 0x160 <resetReihe>
+		EC++;
+ 3e6:	80 91 62 00 	lds	r24, 0x0062
+ 3ea:	90 91 63 00 	lds	r25, 0x0063
+ 3ee:	01 96       	adiw	r24, 0x01	; 1
+		if(EC==9)
+ 3f0:	89 30       	cpi	r24, 0x09	; 9
+ 3f2:	91 05       	cpc	r25, r1
+ 3f4:	29 f0       	breq	.+10     	; 0x400 <LEDan+0x72>
+		ReiheNext();
+		ReiheNext();
+		ReiheNext();
+		warte(Zeit1);
+		resetReihe();
+		EC++;
+ 3f6:	90 93 63 00 	sts	0x0063, r25
+ 3fa:	80 93 62 00 	sts	0x0062, r24
+ 3fe:	04 c0       	rjmp	.+8      	; 0x408 <LEDan+0x7a>
+		if(EC==9)
+		{
+			EC = 1;
+ 400:	f0 92 63 00 	sts	0x0063, r15
+ 404:	e0 92 62 00 	sts	0x0062, r14
+void LEDan()
+{
+	int tan;
+	for(tan=0;tan<ton;tan++)
+ 408:	21 96       	adiw	r28, 0x01	; 1
+ 40a:	80 91 64 00 	lds	r24, 0x0064
+ 40e:	90 91 65 00 	lds	r25, 0x0065
+ 412:	c8 17       	cp	r28, r24
+ 414:	d9 07       	cpc	r29, r25
+ 416:	6c f2       	brlt	.-102    	; 0x3b2 <LEDan+0x24>
+		if(EC==9)
+		{
+			EC = 1;
+		}
+	}
+}
+ 418:	df 91       	pop	r29
+ 41a:	cf 91       	pop	r28
+ 41c:	1f 91       	pop	r17
+ 41e:	ff 90       	pop	r15
+ 420:	ef 90       	pop	r14
+ 422:	08 95       	ret
+
+00000424 <LEDaus>:
+void LEDaus()
+{
+ 424:	ff 92       	push	r15
+ 426:	0f 93       	push	r16
+ 428:	1f 93       	push	r17
+ 42a:	cf 93       	push	r28
+ 42c:	df 93       	push	r29
+	int tan;
+	for(tan=0;tan<tPWM-ton;tan++)
+ 42e:	80 91 60 00 	lds	r24, 0x0060
+ 432:	90 91 61 00 	lds	r25, 0x0061
+ 436:	20 91 64 00 	lds	r18, 0x0064
+ 43a:	30 91 65 00 	lds	r19, 0x0065
+ 43e:	82 1b       	sub	r24, r18
+ 440:	93 0b       	sbc	r25, r19
+ 442:	18 16       	cp	r1, r24
+ 444:	19 06       	cpc	r1, r25
+ 446:	0c f0       	brlt	.+2      	; 0x44a <LEDaus+0x26>
+ 448:	40 c0       	rjmp	.+128    	; 0x4ca <LEDaus+0xa6>
+ 44a:	00 e0       	ldi	r16, 0x00	; 0
+ 44c:	10 e0       	ldi	r17, 0x00	; 0
+		PORTC = 0;
+		Reiheinit();
+		ReiheNext();
+		ReiheNext();
+		ReiheNext();
+		PORTC = 255;
+ 44e:	ff 24       	eor	r15, r15
+ 450:	fa 94       	dec	r15
+		warte(Zeit1);
+		resetReihe();
+		EC++;
+		if(EC==9)
+		{
+			EC = 1;
+ 452:	c1 e0       	ldi	r28, 0x01	; 1
+ 454:	d0 e0       	ldi	r29, 0x00	; 0
+void LEDaus()
+{
+	int tan;
+	for(tan=0;tan<tPWM-ton;tan++)
+	{
+		Ebene(EC);
+ 456:	80 91 62 00 	lds	r24, 0x0062
+ 45a:	90 91 63 00 	lds	r25, 0x0063
+ 45e:	0e 94 51 00 	call	0xa2	; 0xa2 <Ebene>
+		PORTC = 0;
+ 462:	15 ba       	out	0x15, r1	; 21
+		Reiheinit();
+ 464:	0e 94 ab 00 	call	0x156	; 0x156 <Reiheinit>
+		ReiheNext();
+ 468:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 46c:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 470:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		PORTC = 255;
+ 474:	f5 ba       	out	0x15, r15	; 21
+		ReiheNext();
+ 476:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 47a:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 47e:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		ReiheNext();
+ 482:	0e 94 a8 00 	call	0x150	; 0x150 <ReiheNext>
+		warte(Zeit1);
+		resetReihe();
+ 486:	0e 94 b0 00 	call	0x160	; 0x160 <resetReihe>
+		EC++;
+ 48a:	80 91 62 00 	lds	r24, 0x0062
+ 48e:	90 91 63 00 	lds	r25, 0x0063
+ 492:	01 96       	adiw	r24, 0x01	; 1
+		if(EC==9)
+ 494:	89 30       	cpi	r24, 0x09	; 9
+ 496:	91 05       	cpc	r25, r1
+ 498:	29 f0       	breq	.+10     	; 0x4a4 <LEDaus+0x80>
+		ReiheNext();
+		ReiheNext();
+		ReiheNext();
+		warte(Zeit1);
+		resetReihe();
+		EC++;
+ 49a:	90 93 63 00 	sts	0x0063, r25
+ 49e:	80 93 62 00 	sts	0x0062, r24
+ 4a2:	04 c0       	rjmp	.+8      	; 0x4ac <LEDaus+0x88>
+		if(EC==9)
+		{
+			EC = 1;
+ 4a4:	d0 93 63 00 	sts	0x0063, r29
+ 4a8:	c0 93 62 00 	sts	0x0062, r28
+	}
+}
+void LEDaus()
+{
+	int tan;
+	for(tan=0;tan<tPWM-ton;tan++)
+ 4ac:	0f 5f       	subi	r16, 0xFF	; 255
+ 4ae:	1f 4f       	sbci	r17, 0xFF	; 255
+ 4b0:	80 91 60 00 	lds	r24, 0x0060
+ 4b4:	90 91 61 00 	lds	r25, 0x0061
+ 4b8:	20 91 64 00 	lds	r18, 0x0064
+ 4bc:	30 91 65 00 	lds	r19, 0x0065
+ 4c0:	82 1b       	sub	r24, r18
+ 4c2:	93 0b       	sbc	r25, r19
+ 4c4:	08 17       	cp	r16, r24
+ 4c6:	19 07       	cpc	r17, r25
+ 4c8:	34 f2       	brlt	.-116    	; 0x456 <LEDaus+0x32>
+		if(EC==9)
+		{
+			EC = 1;
+		}
+	}
+}
+ 4ca:	df 91       	pop	r29
+ 4cc:	cf 91       	pop	r28
+ 4ce:	1f 91       	pop	r17
+ 4d0:	0f 91       	pop	r16
+ 4d2:	ff 90       	pop	r15
+ 4d4:	08 95       	ret
+
+000004d6 <dimmer>:
+		idimmer--;
+	}
+}
+void dimmer()
+{
+	while(tPWM>ton)
+ 4d6:	20 91 60 00 	lds	r18, 0x0060
+ 4da:	30 91 61 00 	lds	r19, 0x0061
+ 4de:	80 91 64 00 	lds	r24, 0x0064
+ 4e2:	90 91 65 00 	lds	r25, 0x0065
+ 4e6:	82 17       	cp	r24, r18
+ 4e8:	93 07       	cpc	r25, r19
+ 4ea:	a4 f4       	brge	.+40     	; 0x514 <dimmer+0x3e>
+	{
+		LEDan();
+ 4ec:	0e 94 c7 01 	call	0x38e	; 0x38e <LEDan>
+		LEDaus();
+ 4f0:	0e 94 12 02 	call	0x424	; 0x424 <LEDaus>
+		ton=ton+5;
+ 4f4:	80 91 64 00 	lds	r24, 0x0064
+ 4f8:	90 91 65 00 	lds	r25, 0x0065
+ 4fc:	05 96       	adiw	r24, 0x05	; 5
+ 4fe:	90 93 65 00 	sts	0x0065, r25
+ 502:	80 93 64 00 	sts	0x0064, r24
+		idimmer--;
+	}
+}
+void dimmer()
+{
+	while(tPWM>ton)
+ 506:	20 91 60 00 	lds	r18, 0x0060
+ 50a:	30 91 61 00 	lds	r19, 0x0061
+ 50e:	82 17       	cp	r24, r18
+ 510:	93 07       	cpc	r25, r19
+ 512:	64 f3       	brlt	.-40     	; 0x4ec <dimmer+0x16>
+		LEDan();
+		LEDaus();
+		ton=ton+5;
+		
+	}
+	set2--;
+ 514:	80 91 6a 00 	lds	r24, 0x006A
+ 518:	90 91 6b 00 	lds	r25, 0x006B
+ 51c:	01 97       	sbiw	r24, 0x01	; 1
+ 51e:	90 93 6b 00 	sts	0x006B, r25
+ 522:	80 93 6a 00 	sts	0x006A, r24
+	while(ton>0)
+ 526:	80 91 64 00 	lds	r24, 0x0064
+ 52a:	90 91 65 00 	lds	r25, 0x0065
+ 52e:	18 16       	cp	r1, r24
+ 530:	19 06       	cpc	r1, r25
+ 532:	84 f4       	brge	.+32     	; 0x554 <dimmer+0x7e>
+	{
+		LEDan();
+ 534:	0e 94 c7 01 	call	0x38e	; 0x38e <LEDan>
+		LEDaus();
+ 538:	0e 94 12 02 	call	0x424	; 0x424 <LEDaus>
+		ton=ton-5;
+ 53c:	80 91 64 00 	lds	r24, 0x0064
+ 540:	90 91 65 00 	lds	r25, 0x0065
+ 544:	05 97       	sbiw	r24, 0x05	; 5
+ 546:	90 93 65 00 	sts	0x0065, r25
+ 54a:	80 93 64 00 	sts	0x0064, r24
+		LEDaus();
+		ton=ton+5;
+		
+	}
+	set2--;
+	while(ton>0)
+ 54e:	18 16       	cp	r1, r24
+ 550:	19 06       	cpc	r1, r25
+ 552:	84 f3       	brlt	.-32     	; 0x534 <dimmer+0x5e>
+	{
+		LEDan();
+		LEDaus();
+		ton=ton-5;
+	}
+	set++;
+ 554:	80 91 7c 00 	lds	r24, 0x007C
+ 558:	90 91 7d 00 	lds	r25, 0x007D
+ 55c:	01 96       	adiw	r24, 0x01	; 1
+ 55e:	90 93 7d 00 	sts	0x007D, r25
+ 562:	80 93 7c 00 	sts	0x007C, r24
+	if(set2==0)
+ 566:	20 91 6a 00 	lds	r18, 0x006A
+ 56a:	30 91 6b 00 	lds	r19, 0x006B
+ 56e:	23 2b       	or	r18, r19
+ 570:	31 f4       	brne	.+12     	; 0x57e <dimmer+0xa8>
+	{
+		set2=255;
+ 572:	2f ef       	ldi	r18, 0xFF	; 255
+ 574:	30 e0       	ldi	r19, 0x00	; 0
+ 576:	30 93 6b 00 	sts	0x006B, r19
+ 57a:	20 93 6a 00 	sts	0x006A, r18
+	}
+	if (set==255)
+ 57e:	8f 3f       	cpi	r24, 0xFF	; 255
+ 580:	91 05       	cpc	r25, r1
+ 582:	31 f4       	brne	.+12     	; 0x590 <dimmer+0xba>
+	{
+		set=1;
+ 584:	81 e0       	ldi	r24, 0x01	; 1
+ 586:	90 e0       	ldi	r25, 0x00	; 0
+ 588:	90 93 7d 00 	sts	0x007D, r25
+ 58c:	80 93 7c 00 	sts	0x007C, r24
+ 590:	08 95       	ret
+
+00000592 <main>:
+
+int main(void)
+{
+
+    // Insert code
+  DDRA = 0b11111111;
+ 592:	8f ef       	ldi	r24, 0xFF	; 255
+ 594:	8a bb       	out	0x1a, r24	; 26
+  DDRC = 0b11111111;
+ 596:	84 bb       	out	0x14, r24	; 20
+
+    warte(Zeit1);
+    PORTA = 0b01000100;//Resets auf 1
+ 598:	84 e4       	ldi	r24, 0x44	; 68
+ 59a:	8b bb       	out	0x1b, r24	; 27
+
+    while(1)
+    {
+       dimmer();
+ 59c:	0e 94 6b 02 	call	0x4d6	; 0x4d6 <dimmer>
+        warte(Zeit2);
+        pulse(22);
+ 5a0:	86 e1       	ldi	r24, 0x16	; 22
+ 5a2:	90 e0       	ldi	r25, 0x00	; 0
+ 5a4:	0e 94 c0 00 	call	0x180	; 0x180 <pulse>
+		warte(Zeit2);
+    return 0;
+	}
+}
+ 5a8:	80 e0       	ldi	r24, 0x00	; 0
+ 5aa:	90 e0       	ldi	r25, 0x00	; 0
+ 5ac:	08 95       	ret
+
+000005ae <_exit>:
+ 5ae:	f8 94       	cli
+
+000005b0 <__stop_program>:
+ 5b0:	ff cf       	rjmp	.-2      	; 0x5b0 <__stop_program>
